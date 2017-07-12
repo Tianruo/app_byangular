@@ -1,0 +1,30 @@
+angular.module('app-controller',[])
+.controller('startCtrl',function($scope,$location){
+	$scope.msg='mmmmmmmmm';
+	$scope.jump=function(){
+		$location.path('/main');
+	}
+})
+.controller('mainCtrl',function($scope,$http,$location){
+	$scope.dishList=[];
+	$http.get('data/1.json')
+	.success(function(data){
+		$scope.dishList=data;
+		console.log($scope.dishList);
+	});
+	$scope.jump=function(id){
+		$location.path('/detail/'+id);
+	}
+})
+.controller('detailCtrl',function($scope,$routeParams,$http){
+	var id=$routeParams.dno;
+	$http.get('data/1.json')
+	.success(function(data){
+		angular.forEach(data,function(d){
+			if(d.id==id){
+				console.log(d);
+				$scope.data=d;
+			}
+		});
+	});
+});

@@ -1,0 +1,21 @@
+<div class="main">
+	<ul class="main_ul">
+		<li ng-repeat="d in dishList" ng-click="jump(d.id)">
+			<div class="con1"></div>
+			<div class="con2"></div>
+			<div class="con0">
+				<img ng-src={{d.img}}>
+				<div class="word">
+					<span class="w1">{{d.name}}</span>
+					<div class="w2">
+						<div>英雄：{{d.ps1}}</div>
+						<div>定位：{{d.ps2}}</div>
+						<div>特性：{{d.ps3}}</div>
+						<div>背景：{{d.ps4}}</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<div style="height:10em"></div>
+	</ul>
+</div>
